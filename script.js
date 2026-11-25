@@ -298,7 +298,8 @@ function renderTOC() {
                 description.textContent =
                     `${activity.type} – ${activity.title}`;
 
-                info.appendChild(heading);
+
+            
                 info.appendChild(description);
 
                 const actions = document.createElement("div");
