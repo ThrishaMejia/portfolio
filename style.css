@@ -1,14 +1,20 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap');
 
+/* =========================================
+   VIOLET PORTFOLIO - LAVENDER EDITION
+========================================= */
+
 :root {
-    --violet: #54258A;
-    --deep: #321451;
+    --violet: #A98ACF;
+    --deep: #57436F;
     --lavender: #B99AE8;
-    --light: #EDE4F8;
-    --pale: #F8F5FC;
-    --ink: #30213F;
-    --muted: #81748D;
+    --light: #EEE5F8;
+    --pale: #FCFAFF;
+    --ink: #57436F;
+    --muted: #9989A8;
+    --border: #DCCBF3;
+    --pink: #F9E8F0;
 }
 
 * {
@@ -22,11 +28,13 @@ body {
     font-family: 'DM Sans', sans-serif;
 }
 
+/* TOOLBAR */
+
 .editor-toolbar {
     position: sticky;
     top: 0;
-    z-index: 10;
-    background: var(--deep);
+    z-index: 100;
+    background: #A98ACF;
     color: white;
     padding: 14px 5%;
     display: flex;
@@ -47,18 +55,21 @@ body {
 }
 
 .toolbar-actions button {
-    background: var(--lavender);
+    background: #F2EAFB;
     border: none;
     padding: 10px 14px;
     border-radius: 6px;
-    color: var(--deep);
+    color: #70558F;
     font-weight: 700;
+    font-family: inherit;
     cursor: pointer;
 }
 
 .toolbar-actions button:hover {
     background: white;
 }
+
+/* PORTFOLIO */
 
 #portfolio {
     padding: 35px 15px;
@@ -67,6 +78,7 @@ body {
 .page {
     position: relative;
     width: 210mm;
+    height: 297mm;
     min-height: 297mm;
     margin: 0 auto 35px;
     padding: 22mm 20mm 25mm;
@@ -76,6 +88,8 @@ body {
     page-break-after: always;
     break-after: page;
 }
+
+/* HEADER AND FOOTER */
 
 .page-header {
     display: flex;
@@ -88,12 +102,29 @@ body {
     padding-bottom: 12px;
 }
 
+.page-footer {
+    position: absolute;
+    bottom: 12mm;
+    left: 20mm;
+    right: 20mm;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--light);
+    padding-top: 10px;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* SECTION HEADINGS */
+
 .section-heading {
     margin: 45px 0 30px;
 }
 
 .eyebrow {
-    color: var(--lavender);
+    color: var(--violet);
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 3px;
@@ -116,30 +147,15 @@ body {
 .page p {
     font-size: 12px;
     line-height: 1.9;
-    color: #594D63;
-}
-
-.page-footer {
-    position: absolute;
-    bottom: 12mm;
-    left: 20mm;
-    right: 20mm;
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid var(--light);
-    padding-top: 10px;
-    color: var(--muted);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1px;
+    color: #746780;
 }
 
 /* COVER */
 
 .cover-page {
     background:
-        radial-gradient(circle at 90% 10%, #B99AE855, transparent 35%),
-        linear-gradient(145deg, #321451, #54258A 65%, #7650A5);
+        radial-gradient(circle at 90% 10%, #DCCBF388, transparent 35%),
+        linear-gradient(145deg, #8E70B5, #A98ACF 65%, #C3A9E2);
     color: white;
     display: flex;
     flex-direction: column;
@@ -158,7 +174,7 @@ body {
 }
 
 .cover-label {
-    color: #D9C5F3;
+    color: #F1E9FA;
     font-size: 11px;
     letter-spacing: 4px;
     font-weight: 700;
@@ -175,23 +191,23 @@ body {
 .cover-line {
     width: 85px;
     height: 5px;
-    background: var(--lavender);
+    background: #E8DDF7;
     margin: 25px 0;
 }
 
 .cover-content p {
     max-width: 350px;
-    color: #E5D9F1;
+    color: #F4ECFB;
 }
 
 .cover-details {
-    border-left: 3px solid var(--lavender);
+    border-left: 3px solid #E8DDF7;
     padding-left: 20px;
     margin-bottom: 30px;
 }
 
 .cover-details p {
-    color: #E5D9F1;
+    color: #F4ECFB;
     font-size: 11px;
 }
 
@@ -252,58 +268,179 @@ blockquote {
     line-height: 1.7;
 }
 
-/* TABLE OF CONTENTS */
+/* =========================================
+   TABLE OF CONTENTS
+========================================= */
+
+.toc-page {
+    background: var(--pale);
+}
+
+.toc-page .section-heading {
+    margin-top: 38px;
+    margin-bottom: 25px;
+}
+
+.toc-page .section-heading h1 {
+    color: var(--deep);
+}
+
+.toc-page .eyebrow {
+    color: var(--violet);
+}
 
 .toc-description {
-    margin-bottom: 30px;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 28px;
 }
 
-.toc-entry {
+/* WEEK */
+
+.toc-week {
+    margin-bottom: 25px;
+    break-inside: avoid;
+}
+
+.toc-week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 9px;
+    margin-bottom: 12px;
+}
+
+.toc-week-header h2 {
+    color: var(--violet);
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    margin: 0;
+}
+
+.toc-week-actions,
+.toc-activity-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.toc-week-actions button,
+.toc-activity-actions button {
+    border: none;
+    border-radius: 5px;
+    padding: 6px 9px;
+    font-size: 10px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+}
+
+.toc-week-actions button,
+.toc-activity-actions .edit-btn {
+    background: var(--light);
+    color: #8061A8;
+}
+
+.toc-activity-actions .delete-btn,
+.toc-week-actions .delete-btn {
+    background: var(--pink);
+    color: #B46D91;
+}
+
+/* ACTIVITY */
+
+.toc-activity {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 17px 5px;
-    border-bottom: 1px solid var(--light);
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 14px;
+    margin: 7px 0 7px 15px;
+    border-left: 3px solid var(--lavender);
+    background: #F8F4FD;
+    border-radius: 0 7px 7px 0;
+    break-inside: avoid;
 }
 
-.toc-entry .toc-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 25px;
-    color: var(--lavender);
-    min-width: 42px;
-}
-
-.toc-entry .toc-info {
+.toc-activity-info {
     flex: 1;
+    min-width: 0;
 }
 
-.toc-entry h3 {
-    font-size: 13px;
+.toc-activity-info h3 {
+    font-size: 12px;
     color: var(--deep);
     margin: 0 0 5px;
 }
 
-.toc-entry p {
+.toc-activity-info p {
     font-size: 10px;
+    color: var(--muted);
     margin: 0;
+    line-height: 1.5;
 }
 
-.toc-page {
-    color: var(--violet);
-    font-weight: 800;
-    font-size: 12px;
+.toc-add-activity {
+    margin: 9px 0 0 15px;
+    border: 1px dashed var(--lavender);
+    background: #F7F1FC;
+    color: #8966B4;
+    border-radius: 6px;
+    padding: 9px 13px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
 }
 
-/* ACTIVITIES */
+.toc-empty {
+    font-size: 10px;
+    color: var(--muted);
+    font-style: italic;
+    margin-left: 15px;
+}
+
+/* ADD WEEK */
+
+.toc-controls {
+    width: 210mm;
+    margin: -15px auto 35px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.toc-controls button {
+    background: var(--violet);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+}
+
+.toc-controls button:hover {
+    background: #9270BC;
+}
+
+/* =========================================
+   ACTIVITY DOCUMENTATION
+========================================= */
+
+.activity-page .section-heading {
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
 
 .activity-date {
     display: inline-block;
     padding: 9px 14px;
-    background: var(--pale);
+    background: var(--light);
     color: var(--violet);
     font-size: 10px;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .content-label {
@@ -351,6 +488,8 @@ blockquote {
     object-fit: contain;
 }
 
+/* REFLECTION */
+
 .closing-message {
     margin-top: 60px;
     padding: 30px;
@@ -362,7 +501,7 @@ blockquote {
     text-align: center;
 }
 
-/* EDITABLE CONTENT */
+/* EDITABLE TEXT */
 
 [contenteditable="true"]:focus {
     outline: 2px dashed var(--lavender);
@@ -374,47 +513,7 @@ blockquote {
     color: #B5A9C0;
 }
 
-/* PRINT */
-
-@page {
-    size: A4;
-    margin: 0;
-}
-
-@media print {
-    body {
-        background: white;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-
-    .editor-toolbar {
-        display: none !important;
-    }
-
-    #portfolio {
-        padding: 0;
-    }
-
-    .page {
-        width: 210mm;
-        height: 297mm;
-        min-height: 297mm;
-        margin: 0;
-        box-shadow: none;
-        page-break-after: always;
-        break-after: page;
-    }
-
-    .page:last-child {
-        page-break-after: auto;
-        break-after: auto;
-    }
-
-    [contenteditable="true"]:focus {
-        outline: none;
-    }
-}
+/* MOBILE */
 
 @media screen and (max-width: 850px) {
     #portfolio {
@@ -423,8 +522,9 @@ blockquote {
 
     .page {
         width: 100%;
+        height: auto;
         min-height: 1000px;
-        padding: 35px 25px 75px;
+        padding: 35px 25px 85px;
     }
 
     .page-footer {
@@ -447,5 +547,76 @@ blockquote {
 
     .toolbar-actions button {
         font-size: 11px;
+    }
+
+    .toc-controls {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .toc-activity {
+        margin-left: 5px;
+        padding: 10px;
+    }
+
+    .toc-week-header h2 {
+        font-size: 19px;
+    }
+}
+
+/* PRINT */
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+@media print {
+    body {
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .editor-toolbar,
+    .toc-controls,
+    .toc-week-actions,
+    .toc-activity-actions,
+    .toc-add-activity {
+        display: none !important;
+    }
+
+    #portfolio {
+        padding: 0;
+    }
+
+    .page {
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        break-after: page;
+    }
+
+    .toc-week {
+        break-inside: avoid;
+    }
+
+    .toc-activity {
+        break-inside: avoid;
+        background: #F8F4FD !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    [contenteditable="true"]:focus {
+        outline: none;
+    }
+
+    .page:last-child {
+        page-break-after: auto;
+        break-after: auto;
     }
 }
