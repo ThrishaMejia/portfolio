@@ -1,0 +1,451 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap');
+
+:root {
+    --violet: #54258A;
+    --deep: #321451;
+    --lavender: #B99AE8;
+    --light: #EDE4F8;
+    --pale: #F8F5FC;
+    --ink: #30213F;
+    --muted: #81748D;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #EAE5F0;
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.editor-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--deep);
+    color: white;
+    padding: 14px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.toolbar-brand {
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.toolbar-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.toolbar-actions button {
+    background: var(--lavender);
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    color: var(--deep);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.toolbar-actions button:hover {
+    background: white;
+}
+
+#portfolio {
+    padding: 35px 15px;
+}
+
+.page {
+    position: relative;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 35px;
+    padding: 22mm 20mm 25mm;
+    background: white;
+    box-shadow: 0 5px 25px #35204A22;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    color: var(--violet);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--light);
+    padding-bottom: 12px;
+}
+
+.section-heading {
+    margin: 45px 0 30px;
+}
+
+.eyebrow {
+    color: var(--lavender);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.section-heading h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 39px;
+    color: var(--deep);
+    margin: 10px 0;
+}
+
+.heading-line {
+    width: 65px;
+    height: 4px;
+    background: var(--lavender);
+    margin-top: 17px;
+}
+
+.page p {
+    font-size: 12px;
+    line-height: 1.9;
+    color: #594D63;
+}
+
+.page-footer {
+    position: absolute;
+    bottom: 12mm;
+    left: 20mm;
+    right: 20mm;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--light);
+    padding-top: 10px;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* COVER */
+
+.cover-page {
+    background:
+        radial-gradient(circle at 90% 10%, #B99AE855, transparent 35%),
+        linear-gradient(145deg, #321451, #54258A 65%, #7650A5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cover-top,
+.cover-footer {
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.cover-content {
+    margin-top: 80px;
+}
+
+.cover-label {
+    color: #D9C5F3;
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 700;
+}
+
+.cover-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 65px;
+    line-height: 1.1;
+    margin: 25px 0;
+    color: white;
+}
+
+.cover-line {
+    width: 85px;
+    height: 5px;
+    background: var(--lavender);
+    margin: 25px 0;
+}
+
+.cover-content p {
+    max-width: 350px;
+    color: #E5D9F1;
+}
+
+.cover-details {
+    border-left: 3px solid var(--lavender);
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.cover-details p {
+    color: #E5D9F1;
+    font-size: 11px;
+}
+
+.cover-details h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin: 5px 0;
+}
+
+/* INTRODUCTION */
+
+.intro-content {
+    margin-top: 20px;
+}
+
+.intro-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--violet);
+    font-size: 25px;
+}
+
+.profile-placeholder {
+    width: 150px;
+    height: 175px;
+    margin-bottom: 30px;
+    background: var(--pale);
+    border: 2px dashed var(--lavender);
+}
+
+.profile-placeholder label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--violet);
+    font-size: 10px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.profile-placeholder img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+blockquote {
+    background: var(--pale);
+    border-left: 4px solid var(--lavender);
+    padding: 18px 22px;
+    margin: 35px 0;
+    color: var(--violet);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    line-height: 1.7;
+}
+
+/* TABLE OF CONTENTS */
+
+.toc-description {
+    margin-bottom: 30px;
+}
+
+.toc-entry {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 17px 5px;
+    border-bottom: 1px solid var(--light);
+}
+
+.toc-entry .toc-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: var(--lavender);
+    min-width: 42px;
+}
+
+.toc-entry .toc-info {
+    flex: 1;
+}
+
+.toc-entry h3 {
+    font-size: 13px;
+    color: var(--deep);
+    margin: 0 0 5px;
+}
+
+.toc-entry p {
+    font-size: 10px;
+    margin: 0;
+}
+
+.toc-page {
+    color: var(--violet);
+    font-weight: 800;
+    font-size: 12px;
+}
+
+/* ACTIVITIES */
+
+.activity-date {
+    display: inline-block;
+    padding: 9px 14px;
+    background: var(--pale);
+    color: var(--violet);
+    font-size: 10px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.content-label {
+    color: var(--violet);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    margin: 24px 0 10px;
+}
+
+.editable-content {
+    min-height: 55px;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 210px;
+    border: 2px dashed var(--lavender);
+    background: var(--pale);
+}
+
+.image-placeholder label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+    color: var(--violet);
+    font-size: 10px;
+    font-weight: 800;
+    text-align: center;
+    padding: 10px;
+}
+
+.activity-upload {
+    display: none;
+}
+
+.activity-preview {
+    display: none;
+    max-width: 100%;
+    max-height: 190px;
+    object-fit: contain;
+}
+
+.closing-message {
+    margin-top: 60px;
+    padding: 30px;
+    background: var(--pale);
+    color: var(--violet);
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* EDITABLE CONTENT */
+
+[contenteditable="true"]:focus {
+    outline: 2px dashed var(--lavender);
+    outline-offset: 4px;
+}
+
+[contenteditable="true"]:empty::before {
+    content: "Click here to edit...";
+    color: #B5A9C0;
+}
+
+/* PRINT */
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+@media print {
+    body {
+        background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .editor-toolbar {
+        display: none !important;
+    }
+
+    #portfolio {
+        padding: 0;
+    }
+
+    .page {
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+        break-after: page;
+    }
+
+    .page:last-child {
+        page-break-after: auto;
+        break-after: auto;
+    }
+
+    [contenteditable="true"]:focus {
+        outline: none;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #portfolio {
+        padding: 15px 0;
+    }
+
+    .page {
+        width: 100%;
+        min-height: 1000px;
+        padding: 35px 25px 75px;
+    }
+
+    .page-footer {
+        left: 25px;
+        right: 25px;
+        bottom: 25px;
+    }
+
+    .cover-content h1 {
+        font-size: 48px;
+    }
+
+    .section-heading h1 {
+        font-size: 32px;
+    }
+
+    .editor-toolbar {
+        flex-wrap: wrap;
+    }
+
+    .toolbar-actions button {
+        font-size: 11px;
+    }
+}
