@@ -503,4 +503,8 @@ function renderPortfolio() {
 
 // INITIAL LOAD
 
+// INITIAL LOAD
+
 renderPortfolio();
+
+alert("JavaScript is working!");
