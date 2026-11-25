@@ -40,17 +40,44 @@ const SAMPLE = {
   }
 };
 
-/* ----- Load & save (browser localStorage) ----- */
-let db = load();
-function load() {
-  try { const r = localStorage.getItem(KEY); if (r) return JSON.parse(r); } catch (e) {}
-  const fresh = JSON.parse(JSON.stringify(SAMPLE));
-  try { localStorage.setItem(KEY, JSON.stringify(fresh)); } catch (e) {}
-  return fresh;
+/* ----- Load & save (IndexedDB: much bigger than localStorage) ----- */
+let db;
+function openIdb() {
+  return new Promise((res, rej) => {
+    const r = indexedDB.open('portfolio-db', 1);
+    r.onupgradeneeded = () => r.result.createObjectStore('kv');
+    r.onsuccess = () => res(r.result);
+    r.onerror = () => rej(r.error);
+  });
 }
-function save() {
-  try { localStorage.setItem(KEY, JSON.stringify(db)); return true; }
-  catch (e) { alert('Storage is full. Remove some photos or download a backup, then try again.'); return false; }
+async function idbGet() {
+  const d = await openIdb();
+  return new Promise((res, rej) => {
+    const q = d.transaction('kv').objectStore('kv').get('db');
+    q.onsuccess = () => res(q.result); q.onerror = () => rej(q.error);
+  });
+}
+async function idbSet(v) {
+  const d = await openIdb();
+  return new Promise((res, rej) => {
+    const t = d.transaction('kv', 'readwrite'); t.objectStore('kv').put(v, 'db');
+    t.oncomplete = () => res(); t.onerror = t.onabort = () => rej(t.error);
+  });
+}
+async function save() {
+  try { await idbSet(db); return true; }
+  catch (e) { alert('Could not save. Your browser may be blocking storage (private mode?) or the device is out of space.'); return false; }
+}
+async function init() {
+  try { db = await idbGet(); } catch (e) {}
+  if (!db) {
+    /* First run: move any old data from the earlier localStorage version */
+    try { const r = localStorage.getItem(KEY); if (r) db = JSON.parse(r); } catch (e) {}
+    if (!db) db = JSON.parse(JSON.stringify(SAMPLE));
+    await save();
+  }
+  if (navigator.storage && navigator.storage.persist) navigator.storage.persist();
+  render();
 }
 
 /* ----- Helpers ----- */
@@ -197,7 +224,7 @@ function shrink(file) {
   });
 }
 $('#actCancel').onclick = () => $('#actDialog').close();
-$('#actForm').addEventListener('submit', e => {
+$('#actForm').addEventListener('submit', async e => {
   e.preventDefault();
   const data = { week: Number($('#fWeek').value), type: $('#fType').value, date: $('#fDate').value,
     name: $('#fName').value.trim(), photos: formPhotos, description: $('#fDesc').value.trim(),
@@ -205,7 +232,7 @@ $('#actForm').addEventListener('submit', e => {
   const backup = JSON.stringify(db);
   if (editId) Object.assign(db.activities.find(x => x.id === editId), data);
   else { editId = uid(); db.activities.push({ id: editId, ...data }); }
-  if (!save()) { db = JSON.parse(backup); return; }
+  if (!(await save())) { db = JSON.parse(backup); return; }
   $('#actDialog').close(); render();
   const el = document.getElementById('act-' + editId); if (el) el.scrollIntoView();
   editId = null;
@@ -267,4 +294,4 @@ $('#restoreFile').addEventListener('change', e => {
 });
 
 $('#year').textContent = new Date().getFullYear();
-render();
+init();
