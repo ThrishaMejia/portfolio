@@ -1,205 +1,85 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#A98ACF">
-    <title>My Digital Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Academic Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- EDITOR TOOLBAR -->
-    <nav class="editor-toolbar">
-        <div class="toolbar-brand">
-            VIOLET PORTFOLIO
-        </div>
+<header class="site-header noprint">
+  <a class="brand" href="#intro">Academic Journal</a>
+  <nav>
+    <a href="#toc">Contents</a>
+    <a href="#reflection">Reflection</a>
+  </nav>
+</header>
 
-        <div class="toolbar-actions">
-            <button onclick="addWeek()">+ Add Week</button>
-            <button onclick="window.print()">Print / Save PDF</button>
-        </div>
-    </nav>
+<main>
+  <!-- 1. INTRODUCTION -->
+  <section id="intro" class="block hero"></section>
 
-    <main id="portfolio">
+  <!-- 2. TABLE OF CONTENTS -->
+  <section id="toc" class="block">
+    <h2>Table of Contents</h2>
+    <div class="toolbar noprint">
+      <button class="btn" data-act="add-week">+ Add Week</button>
+      <button class="btn primary" data-act="add-activity">+ Add Activity</button>
+      <button class="btn" data-act="print-all">Save All as PDF</button>
+    </div>
+    <div id="tocList"></div>
+  </section>
 
-        <!-- COVER PAGE -->
-        <section class="page cover-page">
-            <div class="cover-decoration"></div>
+  <!-- 3. ACTIVITY ENTRIES -->
+  <section id="entries"></section>
 
-            <div class="cover-top">
-                STUDENT DIGITAL PORTFOLIO
-            </div>
+  <!-- 4. OVERALL REFLECTION -->
+  <section id="reflection" class="block"></section>
+</main>
 
-            <div class="cover-content">
-                <span class="cover-label">
-                    MY LEARNING JOURNEY
-                </span>
+<footer class="site-footer noprint">
+  <p>Academic Portfolio &middot; <span id="year"></span></p>
+  <p class="small">Your changes are saved in this browser only.
+    <button class="link" data-act="backup">Download backup</button> &middot;
+    <button class="link" data-act="restore">Restore backup</button></p>
+  <input type="file" id="restoreFile" accept=".json" hidden>
+</footer>
 
-                <h1 contenteditable="true">
-                    My Digital<br>Portfolio
-                </h1>
+<!-- Activity form -->
+<dialog id="actDialog">
+  <form id="actForm">
+    <h3 id="actTitle">Add Activity</h3>
+    <label>Week number <input type="number" id="fWeek" min="1" required></label>
+    <label>Activity type
+      <select id="fType"><option>Laboratory</option><option>Lecture</option></select></label>
+    <label>Date <input type="date" id="fDate" required></label>
+    <label>Activity name <input type="text" id="fName" required></label>
+    <label>Photos <input type="file" id="fPhotos" accept="image/*" multiple></label>
+    <div id="photoPrev" class="thumbs"></div>
+    <label>Description <textarea id="fDesc" rows="4"></textarea></label>
+    <label>Reflection <textarea id="fRef" rows="4"></textarea></label>
+    <div class="row">
+      <button type="button" class="btn" id="actCancel">Cancel</button>
+      <button type="submit" class="btn primary">Save</button>
+    </div>
+  </form>
+</dialog>
 
-                <div class="cover-line"></div>
+<!-- Generic editor (intro & overall reflection) -->
+<dialog id="edDialog">
+  <form id="edForm">
+    <h3 id="edTitle"></h3>
+    <div id="edFields"></div>
+    <div class="row">
+      <button type="button" class="btn" id="edCancel">Cancel</button>
+      <button type="submit" class="btn primary">Save</button>
+    </div>
+  </form>
+</dialog>
 
-                <p contenteditable="true">
-                    A collection of activities, experiences,
-                    achievements, and reflections.
-                </p>
-            </div>
-
-            <div class="cover-details">
-                <p>PREPARED BY</p>
-
-                <h2 contenteditable="true">
-                    Your Name Here
-                </h2>
-
-                <p contenteditable="true">
-                    Course / Grade / Section
-                </p>
-
-                <p contenteditable="true">
-                    Academic Year 2026–2027
-                </p>
-            </div>
-
-            <div class="cover-footer">
-                LEARN • EXPERIENCE • REFLECT
-            </div>
-        </section>
-
-
-        <!-- INTRODUCTION PAGE -->
-        <section class="page">
-            <div class="page-header">
-                <span>MY DIGITAL PORTFOLIO</span>
-                <span>01</span>
-            </div>
-
-            <div class="section-heading">
-                <span class="eyebrow">GET TO KNOW MY JOURNEY</span>
-                <h1>Introduction</h1>
-                <div class="heading-line"></div>
-            </div>
-
-            <div class="intro-content">
-
-                <div class="profile-placeholder">
-                    <label for="profileImage">
-                        <img id="profilePreview" alt="Profile photo">
-                        <span id="profileText">
-                            + INSERT<br>YOUR PHOTO
-                        </span>
-                    </label>
-
-                    <input
-                        type="file"
-                        id="profileImage"
-                        accept="image/*"
-                        hidden
-                    >
-                </div>
-
-                <h2 contenteditable="true">
-                    Hello, I'm Your Name!
-                </h2>
-
-                <p contenteditable="true">
-                    Welcome to my digital portfolio. This collection
-                    showcases my learning experiences, activities,
-                    outputs, and personal development throughout
-                    my academic journey.
-                </p>
-
-                <p contenteditable="true">
-                    Through this portfolio, I aim to present the
-                    knowledge and skills I have gained, the challenges
-                    I have encountered, and the lessons that have
-                    contributed to my growth as a learner.
-                </p>
-
-                <blockquote contenteditable="true">
-                    "Every experience is an opportunity to learn,
-                    improve, and grow."
-                </blockquote>
-
-            </div>
-
-            <div class="page-footer">
-                <span>INTRODUCTION</span>
-                <span>02</span>
-            </div>
-        </section>
-
-
-        <!-- DYNAMIC TABLE OF CONTENTS -->
-        <div id="toc-pages"></div>
-
-
-        <!-- DYNAMIC ACTIVITY DOCUMENTATION -->
-        <div id="activity-pages"></div>
-
-
-        <!-- OVERALL REFLECTION -->
-        <section class="page reflection-page">
-
-            <div class="page-header">
-                <span>MY DIGITAL PORTFOLIO</span>
-                <span>FINAL</span>
-            </div>
-
-            <div class="section-heading">
-                <span class="eyebrow">
-                    LOOKING BACK AND MOVING FORWARD
-                </span>
-
-                <h1>Overall Reflection</h1>
-                <div class="heading-line"></div>
-            </div>
-
-            <h3 class="content-label">
-                MY LEARNING EXPERIENCE
-            </h3>
-
-            <p contenteditable="true">
-                Reflect on your overall experiences throughout
-                the activities included in this portfolio.
-            </p>
-
-            <h3 class="content-label">
-                CHALLENGES AND REALIZATIONS
-            </h3>
-
-            <p contenteditable="true">
-                Discuss the challenges you encountered and
-                the lessons you learned from them.
-            </p>
-
-            <h3 class="content-label">
-                CONCLUSION
-            </h3>
-
-            <p contenteditable="true">
-                Write your concluding thoughts and explain
-                how these experiences will help you in the future.
-            </p>
-
-            <div class="closing-message" contenteditable="true">
-                "Learning is a journey, and every step matters."
-            </div>
-
-            <div class="page-footer">
-                <span>END OF PORTFOLIO</span>
-                <span>FINAL PAGE</span>
-            </div>
-
-        </section>
-
-    </main>
-
-    <script src="script.js"></script>
-
+<script src="script.js"></script>
 </body>
 </html>
