@@ -79,7 +79,7 @@ function render() {
   $('#tocList').innerHTML = weeks.length ? weeks.map(w => {
     const acts = weekActs(w);
     return `<div class="tocWeek"><strong>Week ${w}</strong>` + (acts.length
-      ? `<ul>${acts.map((a, n) => `<li><a href="#act-${a.id}">Activity ${n + 1} &ndash; ${esc(a.type)}: ${esc(a.name)}</a></li>`).join('')}</ul>`
+      ? `<ul>${acts.map(a => `<li><a href="#act-${a.id}">${esc(a.type)} &ndash; ${esc(a.name)}</a></li>`).join('')}</ul>`
       : `<div class="empty">No activities yet</div>`) + `</div>`;
   }).join('') : '<p class="empty">No weeks yet. Tap "Add Week" or "Add Activity".</p>';
 
