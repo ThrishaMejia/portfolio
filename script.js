@@ -105,7 +105,7 @@ function entryHtml(a) {
     ? `<div class="photos">${a.photos.map(p => `<img src="${p}" alt="Photo of ${esc(a.name)}">`).join('')}</div>`
     : `<div class="nophoto">No photo added</div>`;
   return `<article class="card" id="act-${a.id}">
-    <div class="field"><div class="label">Activity Type</div><p class="value">${esc(a.type)}</p></div>
+    <div class="field"><div class="label">Activity Type</div><p class="value"><span class="badge ${esc(a.type)}">${esc(a.type)}</span></p></div>
     <div class="field"><div class="label">Date</div><p class="value">${esc(fmtDate(a.date))}</p></div>
     <div class="field"><div class="label">Activity Name</div><p class="value name">${esc(a.name)}</p></div>
     <div class="field"><div class="label">Photo</div>${photos}</div>
