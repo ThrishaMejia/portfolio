@@ -4,30 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#54258A">
+    <meta name="theme-color" content="#A98ACF">
     <title>My Digital Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- EDITOR TOOLBAR -->
     <nav class="editor-toolbar">
-        <div class="toolbar-brand">VIOLET PORTFOLIO</div>
+        <div class="toolbar-brand">
+            VIOLET PORTFOLIO
+        </div>
+
         <div class="toolbar-actions">
-            <button onclick="addActivity()">+ Add Activity</button>
+            <button onclick="addWeek()">+ Add Week</button>
             <button onclick="window.print()">Print / Save PDF</button>
         </div>
     </nav>
 
     <main id="portfolio">
 
-        <!-- PAGE 1: COVER -->
+        <!-- COVER PAGE -->
         <section class="page cover-page">
-            <div class="cover-top">STUDENT DIGITAL PORTFOLIO</div>
+            <div class="cover-decoration"></div>
+
+            <div class="cover-top">
+                STUDENT DIGITAL PORTFOLIO
+            </div>
 
             <div class="cover-content">
-                <span class="cover-label">MY LEARNING JOURNEY</span>
-                <h1 contenteditable="true">My Digital<br>Portfolio</h1>
+                <span class="cover-label">
+                    MY LEARNING JOURNEY
+                </span>
+
+                <h1 contenteditable="true">
+                    My Digital<br>Portfolio
+                </h1>
+
                 <div class="cover-line"></div>
+
                 <p contenteditable="true">
                     A collection of activities, experiences,
                     achievements, and reflections.
@@ -35,16 +50,28 @@
             </div>
 
             <div class="cover-details">
-                <p><strong>PREPARED BY</strong></p>
-                <h2 contenteditable="true">Your Name Here</h2>
-                <p contenteditable="true">Course / Grade / Section</p>
-                <p contenteditable="true">Academic Year 2026–2027</p>
+                <p>PREPARED BY</p>
+
+                <h2 contenteditable="true">
+                    Your Name Here
+                </h2>
+
+                <p contenteditable="true">
+                    Course / Grade / Section
+                </p>
+
+                <p contenteditable="true">
+                    Academic Year 2026–2027
+                </p>
             </div>
 
-            <div class="cover-footer">LEARN • EXPERIENCE • REFLECT</div>
+            <div class="cover-footer">
+                LEARN • EXPERIENCE • REFLECT
+            </div>
         </section>
 
-        <!-- PAGE 2: INTRODUCTION -->
+
+        <!-- INTRODUCTION PAGE -->
         <section class="page">
             <div class="page-header">
                 <span>MY DIGITAL PORTFOLIO</span>
@@ -58,21 +85,32 @@
             </div>
 
             <div class="intro-content">
+
                 <div class="profile-placeholder">
                     <label for="profileImage">
-                        <img id="profilePreview" src="" alt="Profile photo">
-                        <span id="profileText">+ INSERT<br>YOUR PHOTO</span>
+                        <img id="profilePreview" alt="Profile photo">
+                        <span id="profileText">
+                            + INSERT<br>YOUR PHOTO
+                        </span>
                     </label>
-                    <input type="file" id="profileImage" accept="image/*" hidden>
+
+                    <input
+                        type="file"
+                        id="profileImage"
+                        accept="image/*"
+                        hidden
+                    >
                 </div>
 
-                <h2 contenteditable="true">Hello, I'm Your Name!</h2>
+                <h2 contenteditable="true">
+                    Hello, I'm Your Name!
+                </h2>
 
                 <p contenteditable="true">
                     Welcome to my digital portfolio. This collection
                     showcases my learning experiences, activities,
                     outputs, and personal development throughout
-                    the academic journey.
+                    my academic journey.
                 </p>
 
                 <p contenteditable="true">
@@ -86,6 +124,7 @@
                     "Every experience is an opportunity to learn,
                     improve, and grow."
                 </blockquote>
+
             </div>
 
             <div class="page-footer">
@@ -94,154 +133,57 @@
             </div>
         </section>
 
-        <!-- PAGE 3: TABLE OF CONTENTS -->
-        <section class="page">
-            <div class="page-header">
-                <span>MY DIGITAL PORTFOLIO</span>
-                <span>02</span>
-            </div>
 
-            <div class="section-heading">
-                <span class="eyebrow">A GUIDE THROUGH MY WORK</span>
-                <h1>Table of Contents</h1>
-                <div class="heading-line"></div>
-            </div>
+        <!-- DYNAMIC TABLE OF CONTENTS -->
+        <div id="toc-pages"></div>
 
-            <p class="toc-description">
-                The following sections are arranged chronologically
-                to present my learning journey.
-            </p>
 
-            <div id="toc-list"></div>
+        <!-- DYNAMIC ACTIVITY DOCUMENTATION -->
+        <div id="activity-pages"></div>
 
-            <div class="page-footer">
-                <span>TABLE OF CONTENTS</span>
-                <span>03</span>
-            </div>
-        </section>
 
-        <!-- SAMPLE ACTIVITY 1 -->
-        <section class="page activity-page"
-                 data-title="First Activity"
-                 data-date="November 1, 2026">
+        <!-- OVERALL REFLECTION -->
+        <section class="page reflection-page">
 
-            <div class="page-header">
-                <span>ACTIVITY DOCUMENTATION</span>
-                <span class="activity-number"></span>
-            </div>
-
-            <div class="section-heading">
-                <span class="eyebrow">LEARNING EXPERIENCE</span>
-                <h1 contenteditable="true">First Activity</h1>
-                <div class="heading-line"></div>
-            </div>
-
-            <div class="activity-date" contenteditable="true">
-                DATE: November 1, 2026
-            </div>
-
-            <h3 class="content-label">ACTIVITY DESCRIPTION</h3>
-            <p class="editable-content" contenteditable="true">
-                Write the description of your first activity here.
-                Explain its purpose, instructions, and what you
-                accomplished.
-            </p>
-
-            <h3 class="content-label">DOCUMENTATION / OUTPUT</h3>
-            <div class="image-placeholder">
-                <label>
-                    <span>+ INSERT SCREENSHOT OR ACTIVITY PHOTO</span>
-                    <input type="file" accept="image/*" class="activity-upload">
-                    <img class="activity-preview" alt="Activity documentation">
-                </label>
-            </div>
-
-            <h3 class="content-label">PERSONAL REFLECTION</h3>
-            <p class="editable-content" contenteditable="true">
-                What did you learn from this activity? Describe
-                your experience, challenges, and realizations.
-            </p>
-
-            <div class="page-footer">
-                <span>ACTIVITY DOCUMENTATION</span>
-                <span class="page-number"></span>
-            </div>
-        </section>
-
-        <!-- SAMPLE ACTIVITY 2 -->
-        <section class="page activity-page"
-                 data-title="Second Activity"
-                 data-date="November 8, 2026">
-
-            <div class="page-header">
-                <span>ACTIVITY DOCUMENTATION</span>
-                <span class="activity-number"></span>
-            </div>
-
-            <div class="section-heading">
-                <span class="eyebrow">LEARNING EXPERIENCE</span>
-                <h1 contenteditable="true">Second Activity</h1>
-                <div class="heading-line"></div>
-            </div>
-
-            <div class="activity-date" contenteditable="true">
-                DATE: November 8, 2026
-            </div>
-
-            <h3 class="content-label">ACTIVITY DESCRIPTION</h3>
-            <p class="editable-content" contenteditable="true">
-                Write your activity description here.
-            </p>
-
-            <h3 class="content-label">DOCUMENTATION / OUTPUT</h3>
-            <div class="image-placeholder">
-                <label>
-                    <span>+ INSERT SCREENSHOT OR ACTIVITY PHOTO</span>
-                    <input type="file" accept="image/*" class="activity-upload">
-                    <img class="activity-preview" alt="Activity documentation">
-                </label>
-            </div>
-
-            <h3 class="content-label">PERSONAL REFLECTION</h3>
-            <p class="editable-content" contenteditable="true">
-                Write your personal reflection here.
-            </p>
-
-            <div class="page-footer">
-                <span>ACTIVITY DOCUMENTATION</span>
-                <span class="page-number"></span>
-            </div>
-        </section>
-
-        <!-- FINAL PAGE: OVERALL REFLECTION -->
-        <section class="page">
             <div class="page-header">
                 <span>MY DIGITAL PORTFOLIO</span>
                 <span>FINAL</span>
             </div>
 
             <div class="section-heading">
-                <span class="eyebrow">LOOKING BACK AND MOVING FORWARD</span>
+                <span class="eyebrow">
+                    LOOKING BACK AND MOVING FORWARD
+                </span>
+
                 <h1>Overall Reflection</h1>
                 <div class="heading-line"></div>
             </div>
 
-            <h3 class="content-label">MY LEARNING EXPERIENCE</h3>
+            <h3 class="content-label">
+                MY LEARNING EXPERIENCE
+            </h3>
+
             <p contenteditable="true">
                 Reflect on your overall experiences throughout
                 the activities included in this portfolio.
             </p>
 
-            <h3 class="content-label">CHALLENGES AND REALIZATIONS</h3>
+            <h3 class="content-label">
+                CHALLENGES AND REALIZATIONS
+            </h3>
+
             <p contenteditable="true">
                 Discuss the challenges you encountered and
                 the lessons you learned from them.
             </p>
 
-            <h3 class="content-label">CONCLUSION</h3>
+            <h3 class="content-label">
+                CONCLUSION
+            </h3>
+
             <p contenteditable="true">
-                Write your concluding thoughts and explain how
-                these experiences will help you in the future.
+                Write your concluding thoughts and explain
+                how these experiences will help you in the future.
             </p>
 
             <div class="closing-message" contenteditable="true">
@@ -252,10 +194,12 @@
                 <span>END OF PORTFOLIO</span>
                 <span>FINAL PAGE</span>
             </div>
+
         </section>
 
     </main>
 
     <script src="script.js"></script>
+
 </body>
 </html>
