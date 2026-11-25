@@ -294,10 +294,6 @@ function renderTOC() {
                 const info = document.createElement("div");
                 info.className = "toc-activity-info";
 
-                const heading = document.createElement("h3");
-                heading.textContent =
-                    `Activity ${activityIndex + 1}`;
-
                 const description = document.createElement("p");
                 description.textContent =
                     `${activity.type} – ${activity.title}`;
